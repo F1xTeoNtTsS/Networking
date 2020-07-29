@@ -14,7 +14,9 @@ class DataProvider: NSObject {
     
     private lazy var bgSession: URLSession = {
         let config = URLSessionConfiguration.background(withIdentifier: "F1xTeoNtTsS.networking")
-//        config.isDiscretionary = true
+        config.isDiscretionary = true // запуск задачи в оптимальное время  (по дефолту false)
+        config.timeoutIntervalForResource = 300 // время ожидания сети в секундах
+        config.waitsForConnectivity = true // ожидание подключения к сети (по дефолту true)
         config.sessionSendsLaunchEvents = true
         return URLSession(configuration: config, delegate: self, delegateQueue: nil)
     }()
@@ -49,7 +51,6 @@ extension DataProvider: URLSessionDelegate {
             appDelegate.bgSessionCompletionHandler = nil
             completionHandler()
         }
-        
     }
 }
 
@@ -71,5 +72,11 @@ extension DataProvider: URLSessionDownloadDelegate {
             self.onProgress?(progress)
         }
     }
+}
+
+extension DataProvider: URLSessionTaskDelegate {
     
+    func urlSession(_ session: URLSession, taskIsWaitingForConnectivity task: URLSessionTask) {
+        
+    }
 }

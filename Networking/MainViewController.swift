@@ -5,6 +5,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 enum Actions: String, CaseIterable {
     
@@ -25,6 +26,22 @@ class MainViewController: UICollectionViewController {
     let actions = Actions.allCases
     private var alert: UIAlertController!
     private let dataProvider = DataProvider()
+    private var filePath: String?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        registerForNotification()
+        
+        dataProvider.fileLocation = { (location) in
+            
+            //Save file
+            print("Download finished: \(location.absoluteString)")
+            self.filePath = location.absoluteString
+            self.alert.dismiss(animated: false, completion: nil)
+            self.postNotification()
+        }
+    }
     
     private func showAlert() {
         alert = UIAlertController(title: "Downloading...", message: "0 %", preferredStyle: .alert)
@@ -105,4 +122,25 @@ class MainViewController: UICollectionViewController {
         }
     }
 
+}
+
+extension MainViewController {
+    
+    private func registerForNotification() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (_, _) in
+            
+        }
+    }
+    
+    private func postNotification() {
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Download complete!"
+        content.body = "File path: \(filePath!)"
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "TransferComplete", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
 }

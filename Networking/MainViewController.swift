@@ -13,6 +13,7 @@ enum Actions: String, CaseIterable {
     case get = "GET"
     case post = "POST"
     case ourCourses = "Our Courses"
+    case ourCoursesAlamofire = "Our Courses (Alamofire)"
     case uploadImage = "Upload Image"
     case downloadFile = "Download file"
 }
@@ -114,11 +115,29 @@ class MainViewController: UICollectionViewController {
             NetworkManager.postRequest(url: url)
         case .ourCourses:
             performSegue(withIdentifier: "OurCourses", sender: self)
+        case .ourCoursesAlamofire:
+            performSegue(withIdentifier: "OurCoursesAlamofire", sender: self)
         case .uploadImage:
             NetworkManager.uploadImage(url: uploadImage)
         case .downloadFile:
             showAlert()
             dataProvider.startDownload()
+        }
+    }
+    
+    // MARK: NAvigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let coursesVC = segue.destination as? CoursesViewController
+        
+        switch segue.identifier {
+        case "OurCourses":
+            coursesVC?.fetchData()
+        case "OurCoursesAlamofire":
+            print("Hello")
+        default:
+            break
         }
     }
 

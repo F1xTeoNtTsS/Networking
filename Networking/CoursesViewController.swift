@@ -15,12 +15,6 @@ class CoursesViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        fetchData()
-    }
-    
     func fetchData() {
         
         NetworkManager.fetchData(url: url) { (courses) in

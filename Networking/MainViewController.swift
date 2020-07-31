@@ -10,16 +10,21 @@ import UserNotifications
 enum Actions: String, CaseIterable {
     
     case downloadImage = "Download Image"
+    case responseData = "Response Data"
     case get = "GET"
     case post = "POST"
     case ourCourses = "Our Courses"
     case ourCoursesAlamofire = "Our Courses (Alamofire)"
     case uploadImage = "Upload Image"
     case downloadFile = "Download file"
+    case responseString = "responseString"
+    case response = "response"
+    case downloadLargeImage = "Download Large Image"
 }
 
 private let reuseIdentifier = "Cell"
 private let url = "https://jsonplaceholder.typicode.com/posts"
+private let switbookApi = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
 private let uploadImage = "https://api.imgur.com/3/image"
 
 class MainViewController: UICollectionViewController {
@@ -109,6 +114,9 @@ class MainViewController: UICollectionViewController {
         switch action {
         case .downloadImage:
             performSegue(withIdentifier: "ShowImage", sender: self)
+        case .responseData:
+            performSegue(withIdentifier: "ResponseData", sender: self)
+            AlamofireNetworkRequest.responseData(url: switbookApi)
         case .get:
             NetworkManager.getRequest(url: url)
         case .post:
@@ -122,6 +130,12 @@ class MainViewController: UICollectionViewController {
         case .downloadFile:
             showAlert()
             dataProvider.startDownload()
+        case .responseString:
+            AlamofireNetworkRequest.responseString(url: switbookApi)
+        case .response:
+            AlamofireNetworkRequest.response(url: switbookApi)
+        case .downloadLargeImage:
+            performSegue(withIdentifier: "LargeImage", sender: self)
         }
     }
     
@@ -130,12 +144,19 @@ class MainViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let coursesVC = segue.destination as? CoursesViewController
+        let imageVC = segue.destination as? ImageViewController
         
         switch segue.identifier {
         case "OurCourses":
             coursesVC?.fetchData()
         case "OurCoursesAlamofire":
-            print("Hello")
+            coursesVC?.fetchDataWithAlamofire()
+        case "ShowImage":
+            imageVC?.fetchImage()
+        case "ResponseData":
+            imageVC?.fetchImageWithAlamofire()
+        case "LargeImage":
+            imageVC?.downloadImageWithProgress()
         default:
             break
         }

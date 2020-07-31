@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T1E-1j-zMM">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,27 +22,43 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YlX-cb-SYq">
                                 <rect key="frame" x="177.5" y="345.5" width="20" height="20"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTu-di-2IS">
+                                <rect key="frame" x="122.5" y="440" width="130" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="I2y-kw-GjX">
+                                <rect key="frame" x="122.5" y="522" width="130" height="2.5"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="yTu-di-2IS" firstAttribute="centerX" secondItem="sDJ-Ie-o0x" secondAttribute="centerX" id="Gi4-H3-ucW"/>
                             <constraint firstItem="YlX-cb-SYq" firstAttribute="centerY" secondItem="PdE-uL-DIr" secondAttribute="centerY" id="bzl-43-ekf"/>
+                            <constraint firstItem="yTu-di-2IS" firstAttribute="top" secondItem="YlX-cb-SYq" secondAttribute="bottom" constant="74.5" id="cuW-Pn-qqi"/>
                             <constraint firstItem="YlX-cb-SYq" firstAttribute="centerX" secondItem="PdE-uL-DIr" secondAttribute="centerX" id="eir-P8-JuI"/>
                             <constraint firstItem="PdE-uL-DIr" firstAttribute="top" secondItem="sDJ-Ie-o0x" secondAttribute="top" id="emi-V5-p6M"/>
                             <constraint firstItem="PdE-uL-DIr" firstAttribute="leading" secondItem="sDJ-Ie-o0x" secondAttribute="leading" id="iFk-OH-1qW"/>
                             <constraint firstItem="PdE-uL-DIr" firstAttribute="trailing" secondItem="sDJ-Ie-o0x" secondAttribute="trailing" id="kTW-IZ-jwH"/>
+                            <constraint firstItem="I2y-kw-GjX" firstAttribute="centerX" secondItem="sDJ-Ie-o0x" secondAttribute="centerX" id="lE1-nr-CP8"/>
                             <constraint firstItem="PdE-uL-DIr" firstAttribute="bottom" secondItem="vtF-oI-IDi" secondAttribute="bottom" id="oh4-LO-Vij"/>
+                            <constraint firstItem="I2y-kw-GjX" firstAttribute="top" secondItem="yTu-di-2IS" secondAttribute="bottom" constant="61" id="z7Q-np-aEe"/>
+                            <constraint firstItem="sDJ-Ie-o0x" firstAttribute="trailing" secondItem="I2y-kw-GjX" secondAttribute="trailing" constant="122.5" id="zAh-t5-Ck9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sDJ-Ie-o0x"/>
                     </view>
                     <navigationItem key="navigationItem" title="Image" id="tDy-0P-prn"/>
                     <connections>
                         <outlet property="activityIndicator" destination="YlX-cb-SYq" id="vaC-HA-64K"/>
+                        <outlet property="completedLabel" destination="yTu-di-2IS" id="ckX-vw-F8n"/>
                         <outlet property="imageView" destination="PdE-uL-DIr" id="ECD-Xx-NIQ"/>
+                        <outlet property="progressView" destination="I2y-kw-GjX" id="VRS-JI-Duw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cav-LT-BQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2764" y="-254.12293853073464"/>
+            <point key="canvasLocation" x="2906" y="-257"/>
         </scene>
         <!--Our Curses-->
         <scene sceneID="5FG-NJ-egk">
@@ -143,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yBJ-j0-tJf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2775.1999999999998" y="483.50824587706148"/>
+            <point key="canvasLocation" x="2905" y="484"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="8s6-O0-aFA">
@@ -185,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cU-Ln-2vd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3536.8000000000002" y="483.50824587706148"/>
+            <point key="canvasLocation" x="3671" y="484"/>
         </scene>
         <!--Controls-->
         <scene sceneID="fxI-qN-ELW">
@@ -244,6 +261,8 @@
                         <segue destination="eEq-kV-HBK" kind="show" identifier="ShowImage" id="9XD-cn-0ea"/>
                         <segue destination="Okz-m4-eD1" kind="show" identifier="OurCourses" id="ECj-Q4-YhZ"/>
                         <segue destination="Okz-m4-eD1" kind="show" identifier="OurCoursesAlamofire" id="3EH-4s-N2E"/>
+                        <segue destination="eEq-kV-HBK" kind="show" identifier="ResponseData" id="DPZ-Ih-4vg"/>
+                        <segue destination="eEq-kV-HBK" kind="show" identifier="LargeImage" id="m9T-Sk-k0v"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QNp-Q0-GA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -271,5 +290,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="3EH-4s-N2E"/>
+        <segue reference="m9T-Sk-k0v"/>
     </inferredMetricsTieBreakers>
 </document>

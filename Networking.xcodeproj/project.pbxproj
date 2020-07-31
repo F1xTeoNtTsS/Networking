@@ -19,7 +19,7 @@
 		A8493E732147D7CA004DE8A8 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8493E722147D7CA004DE8A8 /* CollectionViewCell.swift */; };
 		A8493E772147DC20004DE8A8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8493E762147DC20004DE8A8 /* NetworkManager.swift */; };
 		A8493E7B214924F1004DE8A8 /* ImageProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8493E7A214924F1004DE8A8 /* ImageProperties.swift */; };
-		A895579E214278DB00355357 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = A895579D214278DB00355357 /* Course.swift */; };
+		A895579E214278DB00355357 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A895579D214278DB00355357 /* CourseModel.swift */; };
 		A89557A02142808500355357 /* WebsiteDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = A895579F2142808400355357 /* WebsiteDescription.swift */; };
 		C90EE21424D16B850039F5EF /* AlamofireNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90EE21324D16B850039F5EF /* AlamofireNetworkRequest.swift */; };
 		C97919B024CF5C4000390A5C /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97919AF24CF5C4000390A5C /* DataProvider.swift */; };
@@ -45,7 +45,7 @@
 		A8493E722147D7CA004DE8A8 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		A8493E762147DC20004DE8A8 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A8493E7A214924F1004DE8A8 /* ImageProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProperties.swift; sourceTree = "<group>"; };
-		A895579D214278DB00355357 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		A895579D214278DB00355357 /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
 		A895579F2142808400355357 /* WebsiteDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteDescription.swift; sourceTree = "<group>"; };
 		C90EE21324D16B850039F5EF /* AlamofireNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkRequest.swift; sourceTree = "<group>"; };
 		C97919AF24CF5C4000390A5C /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 				A806CF93210B4EA300574064 /* ImageViewController.swift */,
 				A8255C8321410AFA0074F6D0 /* CoursesViewController.swift */,
 				A8493E7A214924F1004DE8A8 /* ImageProperties.swift */,
-				A895579D214278DB00355357 /* Course.swift */,
+				A895579D214278DB00355357 /* CourseModel.swift */,
 				A895579F2142808400355357 /* WebsiteDescription.swift */,
 				A8255C8521410DFE0074F6D0 /* TableViewCell.swift */,
 				A8255C7F214103450074F6D0 /* WebViewController.swift */,
@@ -245,7 +245,7 @@
 				A8493E772147DC20004DE8A8 /* NetworkManager.swift in Sources */,
 				C90EE21424D16B850039F5EF /* AlamofireNetworkRequest.swift in Sources */,
 				A8493E732147D7CA004DE8A8 /* CollectionViewCell.swift in Sources */,
-				A895579E214278DB00355357 /* Course.swift in Sources */,
+				A895579E214278DB00355357 /* CourseModel.swift in Sources */,
 				A89557A02142808500355357 /* WebsiteDescription.swift in Sources */,
 				A806CF94210B4EA300574064 /* ImageViewController.swift in Sources */,
 				C97919B024CF5C4000390A5C /* DataProvider.swift in Sources */,
